@@ -5,4 +5,4 @@
         <meta charset="utf-8">
         
         <script type="text/javascript" src="main.js"></script>
-        <link rel="stylesheet" href="css/mainfilecss.css">
+        <link rel="stylesheet" href="static/css/mainfilecss.css">

@@ -3,6 +3,7 @@
 <?php require_once( ROOT_PATH . '/includes/public_functions.php') ?>
 <?php $posts = getPublishedPosts(); ?>
 <?php require_once( ROOT_PATH . '/includes/head_section.php') ?>
+<?php require_once( ROOT_PATH . '/includes/registration_login.php') ?>
 <title>blogger.disk</title>
 </head>
 <body>
@@ -23,7 +24,7 @@
         <!-- gåpr igjennom hver post i listen ... -->
         <?php foreach ($posts as $post): ?>
         <div class="post" style="margin-left: 0px;">
-                        <img src="<?php echo BASE_URL . '/images/' . $post['image']; ?>" class="post_image" alt="">
+                        <img src="<?php echo BASE_URL . 'static/images/' . $post['image']; ?>" class="post_image" alt="">
                         <!-- Added this if statement... -->
                         <?php if (isset($post['topic']['name'])): ?>
                 <a 
