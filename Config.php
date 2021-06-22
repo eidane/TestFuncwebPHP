@@ -5,9 +5,9 @@ $user = "admin"; /* User */
 $password = "admin"; /* Password */
 $dbname = "blogger_disk"; /* Database name */
 
-$con = mysqli_connect($host, $user, $password,$dbname);
+$conn = mysqli_connect($host, $user, $password,$dbname);
 // Check connection
-if (!$con) {
+if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 define ('ROOT_PATH', realpath(dirname(__FILE__)));

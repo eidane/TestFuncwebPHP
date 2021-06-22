@@ -1,11 +1,10 @@
 <div class="banner">
 	<div class="welcome_msg">
-		<h1>Today's Inspiration</h1>
+		<h1>Dagens inspirasjon</h1>
 		<p> 
-		    One day your life <br> 
-		    will flash before your eyes. <br> 
-		    Make sure it's worth watching. <br>
-			<span>~ Gerard Way</span>
+		    Ikke gi opp <br> 
+		    dagen i dag er som alle andre dager. <br> 
+		    Men den er altid like spesiell som alle andre dager. <br>
 		</p>
 		<a href="register.php" class="btn">Join us!</a>
 	</div>
