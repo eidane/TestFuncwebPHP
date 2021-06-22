@@ -71,7 +71,7 @@ function getPost($slug){
 	global $conn;
 	// Get single post slug
 	$post_slug = $_GET['post-slug'];
-	$sql = "SELECT * FROM posts WHERE slug='$post_slug' AND published=true";
+	$sql = "SELECT * FROM posts WHERE slug='$post_slug'";
 	$result = mysqli_query($conn, $sql);
 
 	// fetch query results as associative array.
@@ -80,6 +80,7 @@ function getPost($slug){
 		// get the topic to which this post belongs
 		$post['topic'] = getPostTopic($post['id']);
 	}
+
 	return $post;
 }
 /* * * * * * * * * * * *

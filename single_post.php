@@ -20,6 +20,7 @@
 		<div class="post-wrapper">
 			<!-- full post div -->
 			<div class="full-post-div">
+
 			<?php if ($post['published'] == false): ?>
 				<h2 class="post-title">Sorry... This post has not been published</h2>
 			<?php else: ?>

@@ -21,7 +21,6 @@
 		<h1>Welcome</h1>
 		<div class="stats">
 			<a href="users.php" class="first">
-				<span>43</span> <br>
 				<span>Registered users</span>
 			</a>
 			<a href="posts.php">
