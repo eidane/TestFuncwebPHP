@@ -8,6 +8,28 @@
 ?>
 <?php include('includes/head_section.php'); ?>
 <title> <?php echo $post['title'] ?> | blogger.disk</title>
+<link rel="stylesheet" type="text/css" href="static/css/rating_style.css">
+  <script type="text/javascript">
+  
+   function change(id)
+   {
+      var cname=document.getElementById(id).className;
+      var ab=document.getElementById(id+"_hidden").value;
+      document.getElementById(cname+"rating").innerHTML=ab;
+
+      for(var i=ab;i>=1;i--)
+      {
+         document.getElementById(cname+i).src="static/images/star2.png";
+      }
+      var id=parseInt(ab)+1;
+      for(var j=id;j<=5;j++)
+      {
+         document.getElementById(cname+j).src="static/images/star1.png";
+      }
+   }
+
+</script>
+
 </head>
 <body>
 <div class="container">
@@ -54,6 +76,30 @@
 			</div>
 		</div>
 		<!-- // post sidebar -->
+		<div class="post-wrapper">
+			<p>Rate post</p>
+
+  			<p id="total_votes">Total Votes:<?php echo $total;?></p>
+			<p>PHP (<?php echo $total_php_rating;?>)</p>
+			<div class="stars">
+			<form method="post" action="insert_rating.php">
+					  <input type="hidden" id="php1_hidden" value="1">
+					  <img src="static/images/star1.png" onmouseover="change(this.id);" id="php1" class="php">
+					  <input type="hidden" id="php2_hidden" value="2">
+					  <img src="static/images/star1.png" onmouseover="change(this.id);" id="php2" class="php">
+					  <input type="hidden" id="php3_hidden" value="3">
+					  <img src="static/images/star1.png" onmouseover="change(this.id);" id="php3" class="php">
+					  <input type="hidden" id="php4_hidden" value="4">
+					  <img src="static/images/star1.png" onmouseover="change(this.id);" id="php4" class="php">
+					  <input type="hidden" id="php5_hidden" value="5">
+					  <img src="static/images/star1.png" onmouseover="change(this.id);" id="php5" class="php">
+					  <br>
+				  <input type="hidden" name="phprating" id="phprating" value="0">
+				  <input type="submit" value="Submit" name="submit_rating">
+			</form> 
+			</div>
+			
+		</div>
 	</div>
 </div>
 <!-- // content -->

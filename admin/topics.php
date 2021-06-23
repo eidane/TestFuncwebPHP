@@ -53,12 +53,12 @@
 							<td><?php echo $topic['name']; ?></td>
 							<td>
 								<a class="fa fa-pencil btn edit"
-									href="topics.php?edit-topic=<?php echo $topic['id'] ?>">
+									href="topics.php?edit-topic=<?php echo $topic['tid'] ?>">
 								</a>
 							</td>
 							<td>
 								<a class="fa fa-trash btn delete"								
-									href="topics.php?delete-topic=<?php echo $topic['id'] ?>">
+									href="topics.php?delete-topic=<?php echo $topic['tid'] ?>">
 								</a>
 							</td>
 						</tr>

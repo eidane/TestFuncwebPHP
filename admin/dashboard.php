@@ -34,7 +34,10 @@
 		</div>
 		<br><br><br>
 		<div class="buttons">
+			<?php  if ($_SESSION['user']['role']=='Admin'): ?>
+
 			<a href="users.php">Add Users</a>
+			<?php endif; ?>
 			<a href="posts.php">Add Posts</a>
 		</div>
 	</div>
