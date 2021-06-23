@@ -96,5 +96,16 @@ function getAllTopics()
 }
 // more functions to come here ...
 
+//get starrating
+function getRating($id){
+	$id=$id;
+	global $conn;
+	$sql="select id,votes,points from posts where id=$id";
+	$select_rating=mysqli_query($conn, $sql);
+	$rating = mysqli_fetch_all($select_rating, MYSQLI_ASSOC);
+	
+	return $rating;
+}
+
 ?>
 

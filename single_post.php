@@ -6,6 +6,7 @@
 	}
 	$topics = getAllTopics();
 ?>
+<?php $rating = getRating($post['id']); ?>
 <?php include('includes/head_section.php'); ?>
 <title> <?php echo $post['title'] ?> | blogger.disk</title>
 <link rel="stylesheet" type="text/css" href="static/css/rating_style.css">
@@ -15,7 +16,7 @@
    {
       var cname=document.getElementById(id).className;
       var ab=document.getElementById(id+"_hidden").value;
-      document.getElementById(cname+"rating").innerHTML=ab;
+      document.getElementById(cname+"rating").value=ab;
 
       for(var i=ab;i>=1;i--)
       {
@@ -27,11 +28,13 @@
          document.getElementById(cname+j).src="static/images/star1.png";
       }
    }
-
 </script>
 
 </head>
 <body>
+
+  
+
 <div class="container">
 	<!-- Navbar -->
 		<?php include( ROOT_PATH . '/includes/nav.php'); ?>
@@ -78,11 +81,12 @@
 		<!-- // post sidebar -->
 		<div class="post-wrapper">
 			<p>Rate post</p>
+  			<p id="total_votes">Total Votes: <?php echo $rating[0]['votes'];?></p>
+			<p>PHP <?php echo $rating[0]['points'];?></p>
 
-  			<p id="total_votes">Total Votes:<?php echo $total;?></p>
-			<p>PHP (<?php echo $total_php_rating;?>)</p>
 			<div class="stars">
 			<form method="post" action="insert_rating.php">
+				<div class="div">
 					  <input type="hidden" id="php1_hidden" value="1">
 					  <img src="static/images/star1.png" onmouseover="change(this.id);" id="php1" class="php">
 					  <input type="hidden" id="php2_hidden" value="2">
@@ -94,8 +98,13 @@
 					  <input type="hidden" id="php5_hidden" value="5">
 					  <img src="static/images/star1.png" onmouseover="change(this.id);" id="php5" class="php">
 					  <br>
-				  <input type="hidden" name="phprating" id="phprating" value="0">
-				  <input type="submit" value="Submit" name="submit_rating">
+				</div>
+				<!-- // tar med id og videre for å sende posten videre og lagre -->
+				<input type="hidden" name="id"value=<?php echo $post['id'];?>>
+				<input type="hidden" name="votes"value=<?php echo $rating[0]['votes'];?>>
+				<input type="hidden" name="points"value=<?php echo $rating[0]['points'];?>>
+				<input type="hidden" name="phprating" id="phprating" value="0">
+				<input type="submit" value="Submit" name="submit_rating">
 			</form> 
 			</div>
 			
