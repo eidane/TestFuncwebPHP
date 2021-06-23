@@ -8,7 +8,7 @@
 </head>
 <body>
 	<!-- admin navbar -->
-	<?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
+	<?php include(ROOT_PATH . '/admin/includes/navbar.php'); ?>
 
 	<div class="container content">
 		<!-- Left side menu -->
@@ -44,7 +44,8 @@
 					<button type="submit" class="btn" name="update_post">UPDATE</button>
 				<?php else: ?>
 					<button type="submit" class="btn" name="create_post">Save Post</button>
-				<?php endif ?>
+				<?php endif 
+				?>
 
 			</form>
 		</div>

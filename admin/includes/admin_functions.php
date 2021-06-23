@@ -41,11 +41,11 @@ if (isset($_GET['delete-admin'])) {
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-* - Returns all admin users and their corresponding roles
+* - Returns all current users and their corresponding roles could have a seperate user administration, and would need that if there are many users. 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 function getAdminUsers(){
 	global $conn, $roles;
-	$sql = "SELECT * FROM users WHERE role IS NOT NULL";
+	$sql = "SELECT * FROM users";
 	$result = mysqli_query($conn, $sql);
 	$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -170,6 +170,7 @@ function createTopic($request_values){
 	$topic_name = esc($request_values['topic_name']);
 	// create slug: if topic is "Life Advice", return "life-advice" as slug
 	$topic_slug = makeSlug($topic_name);
+	
 	// validate form
 	if (empty($topic_name)) { 
 		array_push($errors, "Topic name required"); 
@@ -260,7 +261,7 @@ function deleteAdmin($admin_id) {
 * * * * * * * * * * * * * * * * * * * * * */
 function editTopic($topic_id) {
 	global $conn, $topic_name, $isEditingTopic, $topic_id;
-	$sql = "SELECT * FROM topics WHERE id=$topic_id LIMIT 1";
+	$sql = "SELECT * FROM topics WHERE tid=$topic_id LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$topic = mysqli_fetch_assoc($result);
 	// set form values ($topic_name) on the form to be updated
@@ -278,7 +279,7 @@ function updateTopic($request_values) {
 	}
 	// register topic if there are no errors in the form
 	if (count($errors) == 0) {
-		$query = "UPDATE topics SET name='$topic_name', slug='$topic_slug' WHERE id=$topic_id";
+		$query = "UPDATE topics SET name='$topic_name', slug='$topic_slug' WHERE tid=$topic_id";
 		mysqli_query($conn, $query);
 
 		$_SESSION['message'] = "Topic updated successfully";

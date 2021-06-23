@@ -1,5 +1,5 @@
 <?php
- 
+ //Much taken from http://talkerscode.com/webtricks/star-rating-system-using-php-and-javascript.php
     $sql="select id,votes,points from posts where id=$id"
     $select_rating=mysql_query($conn,$sql);
     $total=mysql_num_rows($select_rating);

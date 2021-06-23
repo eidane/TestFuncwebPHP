@@ -96,7 +96,7 @@ function getAllTopics()
 }
 // more functions to come here ...
 
-//get starrating
+//get star rating
 function getRating($id){
 	$id=$id;
 	global $conn;

@@ -4,6 +4,7 @@
 <?php $posts = getPublishedPosts(); ?>
 <?php require_once( ROOT_PATH . '/includes/head_section.php') ?>
 <?php require_once( ROOT_PATH . '/includes/registration_login.php') ?>
+<?php require( 'test.php') ?>
 <title>blogger.disk</title>
 </head>
 <body>
@@ -11,7 +12,7 @@
         <h1>Blogger.disk</h1>
 </header>
 <div>
-        
+
 <nav>
         <?php include 'includes/nav.php';?> 
 </nav>

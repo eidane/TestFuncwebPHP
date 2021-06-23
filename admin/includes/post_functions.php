@@ -150,6 +150,7 @@ function updatePost($request_values)
 {
 	global $conn, $errors, $post_id, $title, $featured_image, $topic_id, $body, $published;
 
+
 	$title = esc($request_values['title']);
 	$body = esc($request_values['body']);
 	$post_id = esc($request_values['post_id']);

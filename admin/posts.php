@@ -9,7 +9,7 @@
 </head>
 <body>
 	<!-- admin navbar -->
-	<?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
+	<?php include(ROOT_PATH . '/admin/includes/navbar.php') ;?>
 
 	<div class="container content">
 		<!-- Left side menu -->
