@@ -115,7 +115,8 @@ function createPost($request_values)
 	}
 	// create post if there are no errors in the form
 	if (count($errors) == 0) {
-		$query = "INSERT INTO posts (user_id, title, slug, image, body, published, created_at, updated_at) VALUES(1, '$title', '$post_slug', '$featured_image', '$body', $published, now(), now())";
+		$user_id=$_SESSION['user']['id'];
+		$query = "INSERT INTO posts (user_id, title, slug, image, body, published, created_at, updated_at) VALUES('$user_id', '$title', '$post_slug', '$featured_image', '$body', $published, now(), now())";
 		if(mysqli_query($conn, $query)){ // if post created successfully
 			$inserted_post_id = mysqli_insert_id($conn);
 			// create relationship between post and topic

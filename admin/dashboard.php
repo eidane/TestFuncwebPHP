@@ -10,7 +10,7 @@
 			<a href="<?php echo BASE_URL .'admin/dashboard.php' ?>">
 				<h1>Blogger.disk - Admin</h1>
 			</a>
-			<a href="<?php echo BASE_URL .'index.php' ?>">Frontside</a>
+			<a href="<?php echo BASE_URL .'index.php' ?>">Home</a>
 		</div>
 		<?php if (isset($_SESSION['user'])): ?>
 			<div class="user-info">

@@ -26,9 +26,9 @@
 				<table class="table">
 						<thead>
 						<th>N</th>
-						<th>Title</th>
 						<th>Author</th>
-						<th>Views</th>
+						<th>Title</th>
+						<th>Votes</th>
 						<!-- Only Admin can publish/unpublish post -->
 						<?php if ($_SESSION['user']['role'] == "Admin"): ?>
 							<th><small>Publish</small></th>
@@ -47,7 +47,17 @@
 									<?php echo $post['title']; ?>	
 								</a>
 							</td>
-							<td><?php echo $post['views']; ?></td>
+							<td>
+							<?php 
+							//if no on posted just post 0 else divide on nymber of views
+							if ($post['votes']==0){
+							echo $post['points'];}
+							else{
+								echo number_format($post['points'] / $post['votes'],2);
+							}
+							?></p>
+
+							</td>
 							
 							<!-- Only Admin can publish/unpublish post -->
 							<?php if ($_SESSION['user']['role'] == "Admin" ): ?>

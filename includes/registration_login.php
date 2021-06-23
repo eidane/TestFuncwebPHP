@@ -9,6 +9,8 @@
 		// receive all input values from the form
 		$username = esc($_POST['username']);
 		$email = esc($_POST['email']);
+		$role;
+		
 		$password_1 = esc($_POST['password_1']);
 		$password_2 = esc($_POST['password_2']);
 
@@ -33,12 +35,16 @@
 			if ($user['email'] === $email) {
 			  array_push($errors, "Email already exists");
 			}
+
+		}
+		if(isset($_POST['role'])){
+		$role = esc($_POST['role']);
 		}
 		// register user if there are no errors in the form
 		if (count($errors) == 0) {
 			$password = md5($password_1);//encrypt the password before saving in the database
-			$query = "INSERT INTO users (username, email, password, created_at, updated_at) 
-					  VALUES('$username', '$email', '$password', now(), now())";
+			$query = "INSERT INTO users (username, email, role, password, created_at, updated_at) 
+					  VALUES('$username', '$email', '$role', '$password', now(), now())";
 			mysqli_query($conn, $query);
 
 			// get id of created user
