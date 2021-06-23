@@ -83,15 +83,13 @@ function getPostAuthorById($user_id)
 //functions for add, altering or deleting post
 function createPost($request_values)
 {
-	global $conn, $errors, $title, $featured_image, $topic_id, $body, $published;
+	global $conn, $errors, $title, $featured_image, $topic_id, $body;
 	$title = esc($request_values['title']);
 	$body = htmlentities(esc($request_values['body']));
 	if (isset($request_values['topic_id'])) {
 		$topic_id = esc($request_values['topic_id']);
 	}
-	if (isset($request_values['publish'])) {
-		$published = esc($request_values['publish']);
-	}
+
 	// create slug: if title is "The Storm Is Over", return "the-storm-is-over" as slug
 	$post_slug = makeSlug($title);
 	// validate form
@@ -116,7 +114,7 @@ function createPost($request_values)
 	// create post if there are no errors in the form
 	if (count($errors) == 0) {
 		$user_id=$_SESSION['user']['id'];
-		$query = "INSERT INTO posts (user_id, title, slug, image, body, published, created_at, updated_at) VALUES('$user_id', '$title', '$post_slug', '$featured_image', '$body', $published, now(), now())";
+		$query = "INSERT INTO posts (user_id, title, slug, image, body, created_at, updated_at) VALUES('$user_id', '$title', '$post_slug', '$featured_image', '$body',  now(), now())";
 		if(mysqli_query($conn, $query)){ // if post created successfully
 			$inserted_post_id = mysqli_insert_id($conn);
 			// create relationship between post and topic
@@ -128,6 +126,8 @@ function createPost($request_values)
 			exit(0);
 		}
 	}
+	//message to admin user stored untill admin user logs in. 
+	
 }
 	/* * * * * * * * * * * * * * * * * * * * *
 	* - Takes post id as parameter
@@ -180,6 +180,7 @@ function updatePost($request_values)
 			if (isset($topic_id)) {
 				$inserted_post_id = mysqli_insert_id($conn);
 				// create relationship between post and topic
+				echo "string";
 				$sql = "INSERT INTO post_topic (post_id, topic_id) VALUES($inserted_post_id, $topic_id)";
 				mysqli_query($conn, $sql);
 				$_SESSION['message'] = "Post created successfully";

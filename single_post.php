@@ -80,11 +80,11 @@
 			</div>
 		</div>
 		<!-- // post sidebar -->
-		<?php if((array_key_exists("user",$_SESSION))): ?>
 		<div class="post-wrapper">
 			<p>Rate post</p>
   			<p id="total_votes">Total Votes: <?php echo $rating[0]['votes'];?></p>
-			<p>Average <?php 
+			<p>Average rating: 
+			<?php 
 			//if no on posted just post 0 else divide on nymber of views
 			if ($rating[0]['votes']==0){
 			echo $rating[0]['points'];}
@@ -92,6 +92,7 @@
 				echo number_format($rating[0]['points'] / $rating[0]['votes'],2);
 			}
 			?></p>
+		<?php if((array_key_exists("user",$_SESSION))): ?>
 
 			<div class="stars">
 			<form method="post" action="insert_rating.php">

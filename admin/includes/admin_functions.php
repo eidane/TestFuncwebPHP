@@ -143,6 +143,16 @@ function createAdmin($request_values){
 		exit(0);
 	}
 }
+//get how many unpublished posts there are
+function getNumberOfUnpublished(){
+	global $conn;
+	$query="SELECT COUNT(*) as count FROM posts WHERE published=false";
+	$result = mysqli_query($conn, $query);
+	$counted = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	
+	return $counted[0]['count'];
+
+}
 
 /* - - - - - - - - - - 
 -  Topics functions

@@ -13,7 +13,6 @@
 	<div class="container content">
 		<!-- Left side menu -->
 		<?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
-
 		<!-- Middle form - to create and edit  -->
 		<div class="action create-post-div">
 			<h1 class="page-title">Create/Edit Post</h1>
@@ -39,21 +38,6 @@
 					<?php endforeach ?>
 				</select>
 				
-				<!-- Only admin users can view publish input field -->
-				<?php if ($_SESSION['user']['role'] == "Admin"): ?>
-					<!-- display checkbox according to whether post has been published or not -->
-					<?php if ($published == true): ?>
-						<label for="publish">
-							Publish
-							<input type="checkbox" value="1" name="publish" checked="checked">&nbsp;
-						</label>
-					<?php else: ?>
-						<label for="publish">
-							Publish
-							<input type="checkbox" value="1" name="publish">&nbsp;
-						</label>
-					<?php endif ?>
-				<?php endif ?>
 				
 				<!-- if editing post, display the update button instead of create button -->
 				<?php if ($isEditingPost === true): ?> 
