@@ -4,11 +4,13 @@
 	<title>Admin | Dashboard</title>
 </head>
 <body>
+
 	<div class="header">
 		<div class="logo">
 			<a href="<?php echo BASE_URL .'admin/dashboard.php' ?>">
 				<h1>Blogger.disk - Admin</h1>
 			</a>
+			<a href="<?php echo BASE_URL .'index.php' ?>">Frontside</a>
 		</div>
 		<?php if (isset($_SESSION['user'])): ?>
 			<div class="user-info">
@@ -24,11 +26,11 @@
 				<span>Registered users</span>
 			</a>
 			<a href="posts.php">
-				<span>43</span> <br>
+				
 				<span>Published posts</span>
 			</a>
 			<a>
-				<span>43</span> <br>
+				
 				<span>Published comments</span>
 			</a>
 		</div>

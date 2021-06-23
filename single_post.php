@@ -4,6 +4,7 @@
 	if (isset($_GET['post-slug'])) {
 		$post = getPost($_GET['post-slug']);
 	}
+	
 	$topics = getAllTopics();
 ?>
 <?php $rating = getRating($post['id']); ?>
@@ -79,10 +80,18 @@
 			</div>
 		</div>
 		<!-- // post sidebar -->
+		<?php if((array_key_exists("user",$_SESSION))): ?>
 		<div class="post-wrapper">
 			<p>Rate post</p>
   			<p id="total_votes">Total Votes: <?php echo $rating[0]['votes'];?></p>
-			<p>PHP <?php echo $rating[0]['points'];?></p>
+			<p>Average <?php 
+			//if no on posted just post 0 else divide on nymber of views
+			if ($rating[0]['votes']==0){
+			echo $rating[0]['points'];}
+			else{
+				echo number_format($rating[0]['points'] / $rating[0]['votes'],2);
+			}
+			?></p>
 
 			<div class="stars">
 			<form method="post" action="insert_rating.php">
@@ -107,7 +116,7 @@
 				<input type="submit" value="Submit" name="submit_rating">
 			</form> 
 			</div>
-			
+			<?php endif ?>
 		</div>
 	</div>
 </div>

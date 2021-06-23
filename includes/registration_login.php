@@ -47,7 +47,7 @@
 			// put logged in user into session array
 			$_SESSION['user'] = getUserById($reg_user_id);
 
-			// if user is admin, redirect to admin area
+			// if user is admin or author, redirect to admin area
 			if ( in_array($_SESSION['user']['role'], ["Admin", "Author"])) {
 				$_SESSION['message'] = "You are now logged in";
 				// redirect to admin area
